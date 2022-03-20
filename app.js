@@ -69,20 +69,26 @@ function deleteCheck (e) {
 
 function filterTodo(e) {
     const todos = todoList.childNodes;
-    console.log(todos)
-    // todos.forEach(function(todo) {
-    //     switch (e.target.value) {
-    //         case "all":
-    //             todo.style.display = 'flex';
-    //             break;
-    //         case "completed":
-    //             console.log(todo)
-    //             if(todo.classList.contains('completed')) {
-    //                 todo.style.display = 'flex';
-    //             }else{
-    //                 todo.style.display = 'none';
-    //             }
-    //     }
-    // })
+    todos.forEach(function(todoItem) {
+        switch (e.target.value) {
+            case "all":
+                todoItem.style.display = 'flex';
+                break;
+            case "completed":
+                if(todoItem.classList.contains('completed')) {
+                    todoItem.style.display = 'flex';
+                }else{
+                    todoItem.style.display = 'none';
+                }
+                break;
+            case "uncompleted":
+                if(!todoItem.classList.contains('completed')) {
+                    todoItem.style.display = 'flex';
+                }else{
+                    todoItem.style.display = 'none';
+                }
+                break;
+        }
+    })
 
 }
